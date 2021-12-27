@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Library</title>
+    <title>My Library</title>
     <script src='main.js' defer></script>
     <link rel='stylesheet' href='styles.css'>
 </head>
 <body>
     <div class='container'>
-        <div class='left-side'>
-            <div class='side-bar'>
+        <div class='top'>
+            <div class='left-side'>
                 <div class='logo'>
                     <img src='logo.png' alt='Cat sitting on Books'>
-                    <h1>Personal Library</h1>
+                    <div class='myLibrary'>
+                        <h1>My</h1>
+                        <h1>Library</h1>
+                    </div>
                 </div>
                 <div class='addBook'>
                     <div>insert title</div>
@@ -24,32 +27,26 @@
                     <div>Add new book</div>
                 </div>
                 <div class='stats'>
-                    <div>Books read:  </div>
-                    <div>Pages read: </div>
+                    <div>Total Books Read  </div>
+                    <div>Total Pages Read </div>
                 </div>
             </div>
-        </div>
-        <div class='right-side'>
-            <div class='headers'>
-                <div>Title</div>
-                <div>Author</div>
-                <div>Pages</div>
-                <div>Status</div>
-                <div>Edit/Delete</div>
+            <div class='right-side'>
+                <div class='headers'>
+                    <div>Title</div>
+                    <div>Author</div>
+                    <div>Pages</div>
+                    <div>Status</div>
+                    <div>Edit/Delete</div>
+                </div>
+                <div class='books'></div>
             </div>
-            <div class='books'>
-            </div>
-    <footer class='footer'>
-
-    </footer>
         </div>
-
-
-
-
-
-
-
+        <div class='bottom'>
+            <footer class='footer'>
+                <p>FOOTER</p>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

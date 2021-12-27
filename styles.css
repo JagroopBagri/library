@@ -1,47 +1,80 @@
+/*reset page*/
 * {
     margin: 0;
     padding: 0;
     border: 1px;
     font-family: Arial, sans-serif;
 }
-
 body{
     height: 100vh;
     width: 100vw;
 }
-
+/* container for full page*/
 .container{
-    
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* Seperate footer from rest of page*/
+.top{
     display: flex;
 }
-
+/*left side-bar*/
 .left-side{
-    height: 100%;
-    width: 30%;
+    min-width: 270px;
+    min-height: 500px;
+    height: 100vh;
+    width:25vw;
+    border-style: solid;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
-
-.side-bar{
-    height: 100%;
+/*logo*/
+.logo{
+    display: flex;
     width: 100%;
+    min-width: 190px;
+    min-height: 100px;
+    height: 30%;
+    border-style: solid;
+    overflow: auto;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+/*logo image*/
+img{
+    height: 125px;
+    align-self: center;
+}
+/* logo text*/
+.myLibrary{
+    align-self: center;
+}
+/* Add new book container */
+.addBook{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-.right-side{
-    height: 100%;
-    width: 70%;
-}
-.headers{
-    display: flex;
-}
-
-.logo{
-    height: 30%;
-    width: 100%;
-    display: flex;
-
+    align-items: center;
     border-style: solid;
+    width: 100%;
+    min-width: 190px;
+    min-height: 100px;
+    height: 30%;
+}
+/* Statistics container*/
+.stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-style: solid;
+    width: 100%;
+    min-width: 190px;
+    min-height: 100px;
+    height: 30%;
 }
