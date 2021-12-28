@@ -68,11 +68,10 @@ CSS FOR LEFT SIDE OF WEBPAGE
 /*logo*/
 .logo{
     display: flex;
-    width: 80%;
+    width: 100%;
     min-width: 190px;
     min-height: 100px;
     height: 25%;
-    border-style: solid;
     gap: 5px;
     justify-content: space-evenly;
 }
@@ -95,7 +94,7 @@ img{
     width: 100%;
     min-width: 190px;
     min-height: 100px;
-    height: 30%;
+    height: 60%;
 }
 /* Statistics container*/
 .stats{
@@ -107,7 +106,58 @@ img{
     width: 100%;
     min-width: 190px;
     min-height: 100px;
-    height: 30%;
+    height: 15%;
+}
+/*
+
+
+
+
+
+
+CSS FOR INPUT FORMS AND INPUT BUTTON ON LEFT SIDE
+
+
+
+
+
+
+*/
+
+/* individual input forms */
+input{
+    border-style: solid;
+    width: 85%;
+    height: 7%;
+    padding: 3px;
+    text-align: center;
+
+}
+/* radio button container*/
+.radio{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    width: 85%;
+    height: 20%;
+    padding: 3px;
+    text-align: center;
+    overflow:;
+}
+/*individual radio button*/
+#yes, #no{
+    display: flex;
+    justify-content: center;
+    height: 1rem;
+    overflow: hidden;
+}
+/* Add new book button */
+.addNewBookButton{
+        background-color: transparent;
+        border: 2px solid;
+        padding: 1em 2em;
+        transition: 0.25s;
 }
 
 /*
@@ -194,4 +244,3 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     overflow: auto;
     font-size: 1rem;
 }
-
