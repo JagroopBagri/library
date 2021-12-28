@@ -154,10 +154,14 @@ input{
 }
 /* Add new book button */
 .addNewBookButton{
-        background-color: transparent;
-        border: 2px solid;
-        padding: 1em 2em;
-        transition: 0.25s;
+    background-color: transparent;
+    border: 2px solid;
+    padding: 1em 2em;
+    transition: 0.25s;
+}
+/*Add new book button after being clicked*/
+.addNewBookButton:hover{
+    border-color: red;
 }
 
 /*
