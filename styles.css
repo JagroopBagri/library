@@ -161,7 +161,7 @@ input{
 }
 /*Add new book button after being clicked*/
 .addNewBookButton:hover{
-    border-color: red;
+    border-color: yellowgreen;
 }
 
 /*
@@ -279,4 +279,10 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     background-color: transparent;
     border: 1px solid;
     transition: 0.25s;
+}
+.edit:hover{
+    border-color: green;
+}
+.delete:hover{
+    border-color: red;
 }
