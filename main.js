@@ -16,28 +16,10 @@ function addBook(){
             return alert('Error: Please input a valid number');
         }
         else{
-            readStatus = yesValue; // if yes is clicked then read status is true and vice versa
+            // if yes is clicked then read status is true and vice versa
+            (yesValue === true) ? readStatus = 'Read' : readStatus = 'Unread';
             let book = new Book(titleValue,authorValue,pagesValue,readStatus,bookNumber);
             myLibrary.push(book);
-            let containerDiv = document.createElement('div');
-            containerDiv.classList.add('books');
-            containerDiv.id = bookNumber;
-            bookList.appendChild(containerDiv);
-            let titleDiv = document.createElement('div');
-            titleDiv.textContent = titleValue;
-            containerDiv.appendChild(titleDiv);
-            let authorDiv = document.createElement('div');
-            authorDiv.textContent = authorValue;
-            containerDiv.appendChild(authorDiv);
-            let pagesDiv = document.createElement('div');
-            pagesDiv.textContent = pagesValue;
-            containerDiv.appendChild(pagesDiv);
-            let statusDiv = document.createElement('div');
-            statusDiv.textContent = readStatus;
-            containerDiv.appendChild(statusDiv);
-            let editDiv = document.createElement('div');
-            editDiv.textContent = bookNumber;
-            containerDiv.appendChild(editDiv);
             bookNumber++;
         }
     }
@@ -45,6 +27,46 @@ function addBook(){
        return alert('Error: All fields must be completed.');
     }
 };
+// Display Library on page
+function displayLibrary(array){
+    array.forEach(function(element){
+        // dont display the same book again
+        if(document.getElementById(element.id) !== null){
+            return;
+        }
+        let containerDiv = document.createElement('div');
+        containerDiv.classList.add('books');
+        containerDiv.id = element.id;
+        bookList.appendChild(containerDiv);
+        let titleDiv = document.createElement('div');
+        titleDiv.textContent = element.title;
+        containerDiv.appendChild(titleDiv);
+        let authorDiv = document.createElement('div');
+        authorDiv.textContent = element.author;
+        containerDiv.appendChild(authorDiv);
+        let pagesDiv = document.createElement('div');
+        pagesDiv.textContent = element.pages;
+        containerDiv.appendChild(pagesDiv);
+        let statusDiv = document.createElement('div');
+        (yesValue === true) ? statusDiv.classList.add('read') : statusDiv.classList.add('unread'); // add class to read and unread text
+        statusDiv.textContent = element.status;
+        containerDiv.appendChild(statusDiv);
+        let editDeleteDiv = document.createElement('div');
+        editDeleteDiv.classList.add('edit-delete');
+        containerDiv.appendChild(editDeleteDiv);
+        let editButton = document.createElement('button');
+        editButton.classList.add('edit');
+        editButton.type = 'button';
+        editButton.textContent = 'Edit';
+        editDeleteDiv.appendChild(editButton);
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete');
+        deleteButton.type = 'button';
+        deleteButton.textContent = 'Delete';
+        editDeleteDiv.appendChild(deleteButton);
+    });
+};
+
 // Global Variables
 let bookNumber = 0; // keep track of book number
 let addNewBookButton = document.querySelector('.addNewBookButton'); // add new book button
@@ -63,5 +85,6 @@ addNewBookButton.addEventListener('click', function(){
     pagesValue = document.querySelector('#pages').value;
     yesValue = document.querySelector('#yes').checked;
     noValue = document.querySelector('#no').checked;
-    return addBook();
+    addBook();
+    displayLibrary(myLibrary);
 });

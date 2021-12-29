@@ -236,7 +236,7 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     align-items: center;
     text-align: center;
 } 
-/* Individual books on right side */
+/* Individual book attributes on right side */
 .books div{
     height: 90%;
     width: 19%;
@@ -247,4 +247,36 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     text-align: center;
     overflow: auto;
     font-size: 1rem;
+}
+
+/* Edit/Delete buttons Container */
+.books .edit-delete{
+    justify-content: space-around;
+}
+/* Edit and Delete buttons */
+.edit-delete .edit{
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    width:45%;
+    padding: 1em 1em;
+    background-color: transparent;
+    border: 1px solid;
+    transition: 0.25s;
+}
+.edit-delete .delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    min-width: 60px;
+    width: 45%;
+    padding: 1em 1em;
+    background-color: transparent;
+    border: 1px solid;
+    transition: 0.25s;
 }
