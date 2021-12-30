@@ -224,7 +224,7 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     text-align: center;
 }
 /* Books on right side */
-.books{
+.book{
     box-sizing: border-box;
     min-height: 45px;
     max-height: 90px;
@@ -237,7 +237,7 @@ CSS FOR RIGHT SIDE OF WEBPAGE
     text-align: center;
 } 
 /* Individual book attributes on right side */
-.books div{
+.book div{
     height: 90%;
     width: 19%;
     display: flex;
@@ -250,7 +250,7 @@ CSS FOR RIGHT SIDE OF WEBPAGE
 }
 
 /* Edit/Delete buttons Container */
-.books .edit-delete{
+.book .edit-delete{
     justify-content: space-around;
 }
 /* Edit and Delete buttons */

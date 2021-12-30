@@ -27,7 +27,7 @@ function addBook(){
        return alert('Error: All fields must be completed.');
     }
 };
-// Display Library on page
+// Display Library Books on page and add edit/delete buttons along with event listeners for each
 function displayLibrary(array){
     array.forEach(function(element){
         // dont display the same book again
@@ -36,8 +36,7 @@ function displayLibrary(array){
         }
         // creating and appending elements to display new book
         let containerDiv = document.createElement('div');
-        containerDiv.classList.add('books');
-        containerDiv.id = element.id;
+        containerDiv.classList.add('book', 'b' + element.id);
         bookList.appendChild(containerDiv);
         let titleDiv = document.createElement('div');
         titleDiv.textContent = element.title;
@@ -62,21 +61,31 @@ function displayLibrary(array){
         editDeleteDiv.appendChild(editButton);
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete');
+        deleteButton.id = element.id;
         deleteButton.type = 'button';
         deleteButton.textContent = 'Delete';
         editDeleteDiv.appendChild(deleteButton);
+        deleteButton.addEventListener('click',function(e){
+            e.stopPropagation();
+            deleteBook(deleteButton);
+        })
     });
 };
-// Delete button function
-function deleteBook(){
-    let deleteButtons = document.querySelectorAll('.delete');
-    deleteButtons.forEach(function(deleteButton){
-        deleteButton.addEventListener('click', function(e){
-            e.stopPropagation();
-            console.log('hello');
-        })
+
+// Delete Books function
+function deleteBook(e){
+    myLibrary.forEach(function(book){
+        console.log(myLibrary);
+        if(e.id == book.id){
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            console.log(myLibrary);
+            let targetDiv = document.querySelector('.b' + e.id);
+            console.log(targetDiv);
+            targetDiv.parentElement.removeChild(targetDiv);
+        }
     })
-};
+}
+
 // Global Variables
 let bookNumber = 0; // keep track of book number
 let addNewBookButton = document.querySelector('.addNewBookButton'); // add new book button
@@ -92,7 +101,8 @@ let bookList = document.querySelector('.bookList');
 
 // Event listener for when addNewBook button is clicked
 
-addNewBookButton.addEventListener('click', function(){
+addNewBookButton.addEventListener('click', function(e){
+    e.stopPropagation();
     titleValue = document.querySelector('#title').value;
     authorValue = document.querySelector('#author').value;
     pagesValue = document.querySelector('#pages').value;
@@ -100,10 +110,4 @@ addNewBookButton.addEventListener('click', function(){
     noValue = document.querySelector('#no').checked;
     addBook();
     displayLibrary(myLibrary);
-    deleteBook();
 });
-
-// Event listener for when delete buttons are clicked
-
-//let array = [{age: 5, length:2},{age: 7, length:4}];
-//console.log(array.indexOf(array[1]));
