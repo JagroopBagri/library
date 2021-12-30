@@ -67,7 +67,8 @@ function displayLibrary(array){
         editDeleteDiv.appendChild(deleteButton);
         deleteButtons = document.querySelectorAll('.delete'); // individual delete buttons
         deleteButtons.forEach(function(deletebtn){
-            deletebtn.addEventListener('click', function(){
+            deletebtn.addEventListener('click', function(e){
+                e.stopPropagation();
                 console.log('hello');
             });
         });
@@ -100,16 +101,5 @@ addNewBookButton.addEventListener('click', function(){
 
 // Event listener for when delete buttons are clicked
 
-if(deleteButtons !== undefined){
-    deleteButtons.forEach(function(deletebtn){
-        deletebtn.addEventListener('click', function(){
-            myLibrary.forEach(function(book){
-                console.log(book.id);
-                console.log(deleteButtons.indexOf(deletebtn));
-                    if(book.id === deleteButtons.indexOf(deletebtn)){
-                            return console.log('it works');
-                    };
-            })
-        });
-    });
-};
+//let array = [{age: 5, length:2},{age: 7, length:4}];
+//console.log(array.indexOf(array[1]));
