@@ -65,14 +65,17 @@ function displayLibrary(array){
         deleteButton.type = 'button';
         deleteButton.textContent = 'Delete';
         editDeleteDiv.appendChild(deleteButton);
-        deleteButtons = document.querySelectorAll('.delete'); // individual delete buttons
-        deleteButtons.forEach(function(deletebtn){
-            deletebtn.addEventListener('click', function(e){
-                e.stopPropagation();
-                console.log('hello');
-            });
-        });
     });
+};
+// Delete button function
+function deleteBook(){
+    let deleteButtons = document.querySelectorAll('.delete');
+    deleteButtons.forEach(function(deleteButton){
+        deleteButton.addEventListener('click', function(e){
+            e.stopPropagation();
+            console.log('hello');
+        })
+    })
 };
 // Global Variables
 let bookNumber = 0; // keep track of book number
@@ -97,6 +100,7 @@ addNewBookButton.addEventListener('click', function(){
     noValue = document.querySelector('#no').checked;
     addBook();
     displayLibrary(myLibrary);
+    deleteBook();
 });
 
 // Event listener for when delete buttons are clicked
