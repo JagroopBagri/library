@@ -11,6 +11,9 @@ function Book(title, author, pages, status, id){
 };
 // Add books to array function
 function addBook(){
+    if(myLibrary.length === 0){
+        bookNumber = 0;
+    }
     if(titleValue !== '' && authorValue !== '' && pagesValue !== '' && (yesValue === true || noValue === true)){
         if(Number.isInteger(Number(pagesValue)) === false || pagesValue <= 0 ){ // Can't add new book if # of pages is not specified
             return alert('Error: Please input a valid number');
@@ -51,14 +54,12 @@ function displayLibrary(array){
         (yesValue === true) ? statusDiv.classList.add('read') : statusDiv.classList.add('unread'); // add unique classes to read and unread text
         statusDiv.textContent = element.status;
         containerDiv.appendChild(statusDiv);
+        statusDiv.addEventListener('click', function(){
+            statusSwitch(statusDiv, element);
+        })
         let editDeleteDiv = document.createElement('div');
         editDeleteDiv.classList.add('edit-delete');
         containerDiv.appendChild(editDeleteDiv);
-        let editButton = document.createElement('button');
-        editButton.classList.add('edit');
-        editButton.type = 'button';
-        editButton.textContent = 'Edit';
-        editDeleteDiv.appendChild(editButton);
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete');
         deleteButton.id = element.id;
@@ -75,15 +76,28 @@ function displayLibrary(array){
 // Delete Books function
 function deleteBook(e){
     myLibrary.forEach(function(book){
-        console.log(myLibrary);
         if(e.id == book.id){
             myLibrary.splice(myLibrary.indexOf(book), 1);
-            console.log(myLibrary);
             let targetDiv = document.querySelector('.b' + e.id);
-            console.log(targetDiv);
             targetDiv.parentElement.removeChild(targetDiv);
         }
     })
+}
+
+// Switch book status from read to unread and vice versa function
+function statusSwitch(e, x){
+    if (e.textContent === 'Read'){
+        x.status = 'Unread';
+        e.textContent = 'Unread';
+        e.classList.add('unread');
+        e.classList.remove('read');
+    }
+    else if(e.textContent === 'Unread'){
+        x.status = 'Read';
+        e.textContent = 'Read';
+        e.classList.add('read');
+        e.classList.remove('unread');
+    }
 }
 
 // Global Variables

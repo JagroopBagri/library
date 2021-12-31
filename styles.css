@@ -286,3 +286,12 @@ CSS FOR RIGHT SIDE OF WEBPAGE
 .delete:hover{
     border-color: red;
 }
+/* status div */
+.read{
+    color: green;
+    cursor: pointer;
+}
+.unread{
+    color: red;
+    cursor: pointer;
+}
