@@ -56,6 +56,7 @@ function displayLibrary(array){
         containerDiv.appendChild(statusDiv);
         statusDiv.addEventListener('click', function(){
             statusSwitch(statusDiv, element);
+            updateBooksAndPagesRead(myLibrary);
         })
         let editDeleteDiv = document.createElement('div');
         editDeleteDiv.classList.add('edit-delete');
@@ -69,7 +70,9 @@ function displayLibrary(array){
         deleteButton.addEventListener('click',function(e){
             e.stopPropagation();
             deleteBook(deleteButton);
-        })
+            updateBooksAndPagesRead(myLibrary);
+        });
+        updateBooksAndPagesRead(myLibrary);
     });
 };
 
@@ -99,6 +102,19 @@ function statusSwitch(e, x){
         e.classList.remove('unread');
     }
 }
+// Updates books and pages read statistic
+function updateBooksAndPagesRead(array){
+    booksRead = 0;
+    pagesRead = 0;
+    array.forEach(function(element){
+            if(element.status === 'Read'){
+                booksRead ++;
+                pagesRead += parseInt(element.pages, 10);
+            }
+    });
+    booksReadDiv.textContent = booksRead;
+    pagesReadDiv.textContent = pagesRead;
+;}
 
 // Global Variables
 let bookNumber = 0; // keep track of book number
@@ -112,7 +128,10 @@ let yesValue; // yes button boolean
 let noValue; // no button boolean
 let readStatus; // matches boolean value of yes button
 let bookList = document.querySelector('.bookList'); 
-
+let booksReadDiv = document.querySelector('.booksRead');
+let pagesReadDiv = document.querySelector('.pagesRead');
+let booksRead = 0;
+let pagesRead = 0;
 // Event listener for when addNewBook button is clicked
 
 addNewBookButton.addEventListener('click', function(e){
