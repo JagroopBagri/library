@@ -22,8 +22,6 @@ CSS FOR GENERAL WEBPAGE LAYOUT
 }
 body{
     background-color: rgb(255, 254, 244);
-    height: 100vh;
-    width: 100vw;
 }
 /* container for full page*/
 .container{
@@ -32,6 +30,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 /* Seperate footer from rest of page*/
 .top{
@@ -78,7 +77,7 @@ CSS FOR LEFT SIDE OF WEBPAGE
     justify-content: space-evenly;
 }
 /*logo image*/
-img{
+.logo img{
     height: 125px;
     align-self: center;
 }
@@ -316,4 +315,47 @@ CSS FOR RIGHT SIDE OF WEBPAGE
 .unread{
     color: rgb(226, 52, 81);
     cursor: pointer;
+}
+
+/*
+
+
+
+
+
+
+CSS FOR FOOTER
+
+
+
+
+
+
+*/
+
+
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3vh;
+    width:220px;
+    font-size: .8rem;
+    background-color: transparent;
+    color: black;
+}
+
+footer, p, a, img{
+    background-color: transparent;
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+    
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.3);
 }

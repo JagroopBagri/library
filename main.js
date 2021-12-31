@@ -144,3 +144,8 @@ addNewBookButton.addEventListener('click', function(e){
     addBook();
     displayLibrary(myLibrary);
 });
+
+// Insert footer with updating year
+const footer = document.querySelector('.footer')
+const currentYear = new Date().getFullYear();
+footer.textContent = 'Copyright © ' + currentYear + ' Jagroop Bagri'
